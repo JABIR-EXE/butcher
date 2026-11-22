@@ -1,0 +1,32 @@
+CUTPILOT v1.8 — START HERE
+
+LOCAL PRODUCT DEMO:
+  py -m pip install -r requirements.txt
+  py app.py
+  Open http://127.0.0.1:8765
+
+LOCAL TEST OF INDIVIDUAL BUTCHER ACCOUNTS:
+  PowerShell, in this folder:
+    $env:CUTPILOT_MODE = "saas"
+    $env:CUTPILOT_HOST = "127.0.0.1"
+    $env:CUTPILOT_DATA_DIR = "$PWD\saas-test-data"
+    $env:CUTPILOT_REQUIRE_EMAIL_VERIFICATION = "0"
+    $env:CUTPILOT_COOKIE_SECURE = "0"
+    py app.py
+  Then open http://127.0.0.1:8765/signup
+  Create two different test accounts and verify their products stay separate.
+
+PUBLIC URLS IN SAAS MODE:
+  /        public website
+  /pricing public plans
+  /signup  owner registration
+  /login   sign-in
+  /app     protected business dashboard
+
+IMPORTANT:
+  - Account creation works only when CUTPILOT_MODE=saas.
+  - Public signup requires SMTP email settings and CUTPILOT_BASE_URL when email verification is on.
+  - Checkout is NOT integrated. Pricing is proposed and no payment is taken.
+  - render.yaml is an early single-instance pilot setup with a persistent disk.
+  - Do not accept paying customer data until security, backup/restore and deployment review is complete.
+  - See docs/HOSTED_SAAS_SETUP.md and docs/DEMO_AND_HOSTING_QUICKSTART.md.

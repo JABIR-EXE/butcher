@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sales>
+  <sale>
+    <date>2026-11-17</date>
+    <product>Chicken Breast</product>
+    <sku>CHK-001</sku>
+    <quantity>2.5</quantity>
+    <unit>kg</unit>
+    <unit_price>12.50</unit_price>
+    <line_total>31.25</line_total>
+    <sale_id>POS-1001</sale_id>
+  </sale>
+  <sale>
+    <date>2026-11-17</date>
+    <product>Ground Beef</product>
+    <sku>BEEF-001</sku>
+    <quantity>1.2</quantity>
+    <unit>kg</unit>
+    <unit_price>15.00</unit_price>
+    <line_total>18.00</line_total>
+    <sale_id>POS-1002</sale_id>
+  </sale>
+</sales>

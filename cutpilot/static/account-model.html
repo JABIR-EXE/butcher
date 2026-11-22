@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CutPilot accounts and hosting</title><link rel="stylesheet" href="/styles.css">
+<style>
+body{padding:28px}.doc{max-width:980px;margin:auto;background:var(--panel,#fff);border:1px solid var(--border,#e5ebf1);border-radius:22px;padding:32px;box-shadow:0 15px 40px #10243c12}.doc h1{font:800 32px Manrope,sans-serif;margin:8px 0;color:var(--text,#14243a)}.doc h2{font:800 18px Manrope,sans-serif;margin:27px 0 9px;color:var(--text,#1b304b)}.doc p,.doc li{font-size:13px;line-height:1.75;color:var(--muted,#607188)}.doc code{background:var(--surface,#f1f5f8);padding:2px 5px;border-radius:4px}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.flow div{background:var(--surface,#f4faf7);border:1px solid var(--border,#d9eee5);border-radius:13px;padding:16px}.flow b{display:block;color:var(--accent,#15684f);margin-bottom:6px}.notice{padding:14px;border-radius:12px;background:var(--surface,#f2f6f8);border:1px solid var(--border,#dce5eb)}@media(max-width:650px){body{padding:10px}.doc{padding:20px}.flow{grid-template-columns:1fr}}
+</style></head>
+<body><main class="doc">
+<div class="eyebrow">FOUNDER / DEPLOYMENT GUIDE · CUTPILOT v1.8</div>
+<h1>How each butcher will use CutPilot</h1>
+<p><b>Commercial direction:</b> a hosted website with individual owner accounts. Butchers use a browser; they do not install the app or run a database.</p>
+<div class="notice"><b>Current truth:</b> v1.8 contains a working early account pilot. It has not been deployed to a public domain, billing is not connected, and the current tenant database method is a single-instance SQLite pilot rather than scalable managed PostgreSQL.</div>
+<h2>1. What the butcher experiences</h2>
+<ol><li>The butcher visits your public CutPilot website.</li><li>They compare plans and create an owner account.</li><li>They verify the email address and sign in.</li><li>They enter the business name, country and currency.</li><li>They import their product catalogue and opening stock, then POS sales exports.</li><li>They review sales, stock alerts and suggested purchases.</li></ol>
+<div class="flow"><div><b>1 · Public website</b><span>Plans, registration and sign-in</span></div><div><b>2 · Owner account</b><span>One owner and one business workspace in v1.8</span></div><div><b>3 · Private shop data</b><span>Separate business database file on the hosted pilot</span></div></div>
+<h2>2. What the v1.8 account pilot implements</h2>
+<ul><li>Owner registration, sign-in and sign-out.</li><li>Email verification and password-reset emails when SMTP is configured.</li><li>Session cookies and server-side account-to-workspace lookup.</li><li>One SQLite database file per organization on the same host's persistent disk.</li><li>Authenticated business API routes and cross-business isolation tests.</li></ul>
+<h2>3. What is not implemented yet</h2>
+<ul><li>Public deployment at your own domain — the included Render Blueprint is a template only.</li><li>Managed PostgreSQL and database row-level security for a scalable multi-tenant service.</li><li>Employee invitations, multiple roles and multiple workspaces per owner.</li><li>Subscription checkout, payment webhooks, cancellation, invoices or paid-plan enforcement.</li><li>Automated production backups, restore drills and an independent security review.</li></ul>
+<h2>4. Local preview versus account test versus hosted pilot</h2>
+<ul><li><b>Local preview:</b> run <code>py app.py</code> with the default local mode. It has one shop database on your computer and is best for a product demo with sample data.</li><li><b>Local SaaS test:</b> set <code>CUTPILOT_MODE=saas</code> and <code>CUTPILOT_DATA_DIR</code> to a separate test folder. This lets you register two fake accounts locally and test that their shop data is isolated.</li><li><b>Hosted pilot:</b> deploy the SaaS mode on a paid service with persistent storage, HTTPS, a real domain and transactional email. Keep it invite-only and one instance while using the SQLite tenant-file model.</li></ul>
+<h2>5. What should happen before scaling</h2>
+<p>Migrate to managed PostgreSQL. Every business-owned record should carry an organization relationship, and the database should enforce row-level security as well as application membership checks. Add private import storage, encrypted backups, restore tests, monitoring, staff roles, data export/deletion and a professional security review.</p>
+<h2>6. Pricing and money</h2>
+<p>Starter ($29/month), Professional ($59/month) and Multi-location ($99+/month) are proposed prices only. A butcher can select a preferred plan while registering, but v1.8 does not collect money or activate a paid subscription. Integrate an approved payment provider, signed server-side webhooks and plan enforcement before selling subscriptions.</p>
+<p><a href="/">← Return to CutPilot</a></p>
+</main></body></html>

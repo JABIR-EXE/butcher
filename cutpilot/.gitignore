@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+data/*.sqlite3
+data/*.sqlite3-shm
+data/*.sqlite3-wal
+.venv/
+data/tenants/*.sqlite3
+data/tenants/*.sqlite3-shm
+data/tenants/*.sqlite3-wal
+saas-test-data/

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+    <name>Chicken Breast</name>
+    <sku>CHK-001</sku>
+    <category>Poultry</category>
+    <stock_unit>kg</stock_unit>
+    <purchase_unit>kg</purchase_unit>
+    <conversion_factor>1</conversion_factor>
+    <unit_cost>7.20</unit_cost>
+    <unit_price>12.50</unit_price>
+    <opening_stock>24</opening_stock>
+    <min_stock>8</min_stock>
+    <pack_size>1</pack_size>
+    <shelf_life_days>3</shelf_life_days>
+  </product>
+  <product>
+    <name>Ground Beef</name>
+    <sku>BEEF-001</sku>
+    <category>Beef</category>
+    <stock_unit>kg</stock_unit>
+    <purchase_unit>kg</purchase_unit>
+    <conversion_factor>1</conversion_factor>
+    <unit_cost>8.40</unit_cost>
+    <unit_price>15.00</unit_price>
+    <opening_stock>18</opening_stock>
+    <min_stock>6</min_stock>
+    <pack_size>1</pack_size>
+    <shelf_life_days>2</shelf_life_days>
+  </product>
+</products>

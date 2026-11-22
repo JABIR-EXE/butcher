@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: cutpilot-hosted-pilot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /api/health
+    disk:
+      name: cutpilot-business-data
+      mountPath: /var/data/cutpilot
+      sizeGB: 1
+    envVars:
+      - key: CUTPILOT_MODE
+        value: saas
+      - key: CUTPILOT_HOST
+        value: 0.0.0.0
+      - key: CUTPILOT_DATA_DIR
+        value: /var/data/cutpilot
+      - key: CUTPILOT_COOKIE_SECURE
+        value: "1"
+      - key: CUTPILOT_REQUIRE_EMAIL_VERIFICATION
+        value: "1"
+      - key: CUTPILOT_BASE_URL
+        sync: false
+      - key: CUTPILOT_SMTP_HOST
+        sync: false
+      - key: CUTPILOT_SMTP_PORT
+        value: "587"
+      - key: CUTPILOT_SMTP_USER
+        sync: false
+      - key: CUTPILOT_SMTP_PASSWORD
+        sync: false
+      - key: CUTPILOT_EMAIL_FROM
+        sync: false

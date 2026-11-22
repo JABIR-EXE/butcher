@@ -1,0 +1,1 @@
+CutPilot v1.7 brand identity preview. See ../brand/cutpilot-mark.png and ../brand/cutpilot-logo.png. The interface also includes the hosted owner-account pilot introduced in v1.8.

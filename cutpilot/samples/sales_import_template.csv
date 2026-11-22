@@ -1,0 +1,4 @@
+﻿date,product,sku,quantity,unit,unit_price,line_total,sale_id
+2026-11-17,Chicken Breast,CHK-001,2.5,kg,12.00,30.00,POS-1001
+2026-11-17,Ground Beef,BEEF-001,1.2,kg,15.00,18.00,POS-1002
+2026-11-17,Lamb Chops,LAMB-001,0.8,kg,24.00,19.20,POS-1003
